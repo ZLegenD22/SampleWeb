@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">  
+    <title>Website</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo" data-aos="fade-down"
+            data-aos-duration="1550">Marinduque</div>
+            <ul 
+            data-aos="fade-down"
+     data-aos-duration="1500">
+                <li>Home</li>
+                <li>News</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="banner" style="background-image: url('/SimpleWebsite/background.jpg');">
+            <div class="glass-wrapper"
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1550"
+            ></div>
+        </div>
+        <div class="hero-title" data-aos="fade-zoom-in"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="1550">
+            <p >Discover</p>
+            <p class="country"
+            >Philippines</p>
+            <div class="details">
+                Marinduque, officially the Province of Marinduque, is an island province in the Philippines located in Southwestern Tagalog Region or Mimaropa, formerly designated as Region IV-B. Its capital is the municipality of Boac. Marinduque lies between Tayabas Bay to the north and Sibuyan Sea to the south.
+            </div>
+                <div class="explore">
+                    <button>Explore</button>
+                </div>
+        </div>
+        <div class="tourist-list">
+           <ul class="place-list" data-aos="fade-down"
+           data-aos-duration="1500">
+
+            <li class="active" data-img ="./background.jpg" >
+                <div class="thumbnail" style="background: url('./background.jpg')">
+                <div class="details">
+                    <p class="province">Marinduque</p>
+                    <p class="place-name">Torrijos</p>
+
+                </div>
+            </div>
+
+
+
+
+            <li data-img = "./boac.jpg">
+          
+                <div class="thumbnail" style="background: url('./boac.jpg')">
+                <div class="details">
+                    <p class="province">Marinduque</p>
+                    <p class="place-name">Boac</p>
+
+                </div>
+            </div>
+
+            </li>
+
+            
+        </li>
+
+        <li data-img ="./buenavista.jpg" >
+            <div class="thumbnail" style="background: url('./buenavista.jpg')">
+            <div class="details">
+                <p class="province">Marinduque</p>
+                <p class="place-name">Buenavista</p>
+
+            </div>
+        </div>
+
+        </li>
+          
+
+            
+            
+           </ul>
+
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+
+    let places = document.querySelectorAll(".place-list li");
+    let active = "/background.jpg";
+
+    places.forEach((e)=>{
+        e.addEventListener("mouseenter", (event) => {
+           places.forEach((e) => {
+            e.classList.remove("active");
+           });
+
+           event.target.classList.add("active");
+           active = event.target.getAttribute('data-img');
+           let banner= document.querySelector(".banner");
+           banner.style.backgroundImage = `url('${active}')`;
+          
+          
+        });
+    });
+</script>
+</html>
